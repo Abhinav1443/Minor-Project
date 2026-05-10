@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyEase — Academic Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  
+<base target="_blank">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <span>StudyEase</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#cse-core">CSE Core</a></li>
+                <li><a href="#cse-aiml">CSE-AIML</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fas fa-university"></i>
+                Academic Year 2024-25
+            </div>
+            <h1>StudyEase</h1>
+            <p>Your comprehensive academic resource hub for CSE & AIML at LNCT University. Access curated study materials, previous year papers, and comprehensive notes — all in one place.</p>
+            <div class="hero-buttons">
+                <a href="#branches" class="btn btn-primary">
+                    <i class="fas fa-compass"></i>
+                    Explore Branches
+                </a>
+                <a href="#resources" class="btn btn-secondary">
+                    <i class="fas fa-book-open"></i>
+                    View Resources
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branch Selection -->
+    <section class="section" id="branches">
+        <div class="section-header">
+            <h2>Select Your Branch</h2>
+            <p>Choose your department to access curated study materials, previous year papers, and comprehensive notes.</p>
+        </div>
+        <div class="branches-grid">
+            <div class="branch-card" onclick="showBranch('cse')">
+                <div class="branch-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>CSE Core</h3>
+                <p>Computer Science & Engineering — Core curriculum covering algorithms, systems, software engineering, and computer architecture.</p>
+                <div class="branch-meta">
+                    <span><i class="fas fa-book"></i> 8 Semesters</span>
+                    <span><i class="fas fa-file-pdf"></i> 40+ Subjects</span>
+                </div>
+            </div>
+            <div class="branch-card" onclick="showBranch('aiml')">
+                <div class="branch-icon" style="background: rgba(168, 85, 247, 0.1); color: #a855f7;"><i class="fas fa-brain"></i></div>
+                <h3>CSE-AIML</h3>
+                <p>Computer Science with AI & Machine Learning — Specialized track focusing on data science, neural networks, and intelligent systems.</p>
+                <div class="branch-meta">
+                    <span><i class="fas fa-book"></i> 8 Semesters</span>
+                    <span><i class="fas fa-file-pdf"></i> 40+ Subjects</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSE Core Section -->
+    <section class="section" id="cse-core" style="display:none;">
+        <div class="section-header">
+            <div class="badge" style="margin-bottom: 1.5rem;"><i class="fas fa-laptop-code"></i> CSE Core</div>
+            <h2>Computer Science & Engineering</h2>
+            <p>Select your semester to view subjects and access study resources.</p>
+        </div>
+        <div class="semester-tabs" id="cseTabs"></div>
+        <div class="subjects-grid" id="cseSubjects"></div>
+        <div class="resource-panel" id="cseResourcePanel">
+            <div class="resource-header">
+                <div class="resource-title">
+                    <h3 id="cseResourceTitle">Subject Resources</h3>
+                    <p id="cseResourceDesc">Access mid-semester papers, previous year papers, and comprehensive notes.</p>
+                </div>
+                <button class="close-panel" onclick="closeResourcePanel('cse')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="resource-grid" id="cseResourceGrid"></div>
+        </div>
+    </section>
+
+    <!-- CSE-AIML Section -->
+    <section class="section" id="cse-aiml" style="display:none;">
+        <div class="section-header">
+            <div class="badge" style="margin-bottom: 1.5rem; background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.2); color: #a855f7;"><i class="fas fa-brain"></i> CSE-AIML</div>
+            <h2>Computer Science & AI/ML</h2>
+            <p>Select your semester to view subjects and access study resources.</p>
+        </div>
+        <div class="semester-tabs" id="aimlTabs"></div>
+        <div class="subjects-grid" id="aimlSubjects"></div>
+        <div class="resource-panel" id="aimlResourcePanel">
+            <div class="resource-header">
+                <div class="resource-title">
+                    <h3 id="aimlResourceTitle">Subject Resources</h3>
+                    <p id="aimlResourceDesc">Access mid-semester papers, previous year papers, and comprehensive notes.</p>
+                </div>
+                <button class="close-panel" onclick="closeResourcePanel('aiml')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="resource-grid" id="aimlResourceGrid"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p> <span id="year"></span> StudyEase — Built for LNCT University Students</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Academic Year 2024-25 | CSE & AIML Department</p>
+    </footer>
+
+    <script src="index.js"></script>
+       
